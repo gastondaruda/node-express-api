@@ -4,12 +4,14 @@ const connectDB = require("./config/connectDB")
 const dotenv = require("dotenv").config()
 const Movie = require("./models/movieModel")
 const movieRoutes = require("./routes/movieRoute")
+const cors = require("cors")
 
 
 const app = express()
 
 //middleware
 app.use(express.json())
+app.use(cors())
 app.use(express.urlencoded({extended: false}))
 app.use("/api/movies",movieRoutes)
 
